@@ -1,0 +1,1 @@
+<img src="{{ URL::to('icon.png') }}" style="width:60px; height:60px"/>
