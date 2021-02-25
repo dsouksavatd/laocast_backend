@@ -79,7 +79,7 @@
                                             </td>
                                             <td align="right">
                                                 
-                                                @if(Laratrust::isAbleTo('track-publish'))
+                                                @if(Auth::user()->hasPermission('track-publish'))
                                                     @if($track->publish < 0)
                                                         <a href="{{ URL::to('track/publish') }}/{{ $track->id }}" class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-1 px-2 border border-green-500 hover:border-transparent rounded mr-3">
                                                             Publish
@@ -90,7 +90,7 @@
                                                         </a>
                                                     @endif
                                                 @endif
-                                                @if(Auth::user()->hasRole('caster'))
+                                                @if(Auth::user()->hasPermission('track-edit'))
                                                 <a href="{{ URL::to('track/edit') }}/{{ $track->id }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded mr-3">
                                                     Edit
                                                 </a>

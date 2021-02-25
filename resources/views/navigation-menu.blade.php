@@ -21,7 +21,7 @@
                     <x-jet-nav-link href="{{ route('channels') }}" :active="request()->routeIs('channels')">
                         {{ __('Channels') }}
                     </x-jet-nav-link>
-                    @if(Laratrust::hasRole('root'))
+                    @if(Auth::user()->hasRole('root'))
                     <x-jet-nav-link href="{{ URL::to('acl') }}" :active="request()->routeIs('acl')">
                         {{ __('Roles & Permissions') }}
                     </x-jet-nav-link>
