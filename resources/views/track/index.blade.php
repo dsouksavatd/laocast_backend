@@ -35,7 +35,7 @@
                                             Status
                                         </th>
                                         <th scope="col" class="relative py-6 " align="right">
-                                            @if(Auth::user()->hasRole('caster'))<a href="{{ URL::to('track/add') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded mr-3">Upload</a>@endif
+                                            @permission('track-add')<a href="{{ URL::to('track/add') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded mr-3">Upload</a>@endif
                                         </th>
                                     </tr>
                                 </thead>
@@ -79,7 +79,7 @@
                                             </td>
                                             <td align="right">
                                                 
-                                                @if(Auth::user()->hasPermission('track-publish'))
+                                                @permission('track-publish')
                                                     @if($track->publish < 0)
                                                         <a href="{{ URL::to('track/publish') }}/{{ $track->id }}" class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-1 px-2 border border-green-500 hover:border-transparent rounded mr-3">
                                                             Publish
@@ -90,7 +90,7 @@
                                                         </a>
                                                     @endif
                                                 @endif
-                                                @if(Auth::user()->hasPermission('track-edit'))
+                                                @permission('track-edit')
                                                 <a href="{{ URL::to('track/edit') }}/{{ $track->id }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded mr-3">
                                                     Edit
                                                 </a>

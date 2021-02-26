@@ -33,7 +33,7 @@
                                             Status
                                         </th>
                                         <th scope="col" class="relative py-6" align="right">
-                                            @if(Auth::user()->hasRole('caster'))
+                                            @permission('channel-add')
                                                 <a href="{{ URL::to('channel/add') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-3 rounded mr-4">New Channel</a>
                                             @endif
                                         </th>
@@ -77,7 +77,7 @@
                                                 @endif
                                             </td>
                                             <td align="right">
-                                                @if(Auth::user()->hasRole('caster'))
+                                                @permission('channel-edit')
                                                 <a href="{{ URL::to('channel/edit') }}/{{ $channel->id }}" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded mr-3">
                                                     Edit
                                                 </a>
