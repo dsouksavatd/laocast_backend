@@ -11,8 +11,13 @@
 		<div class="max-w-2xl bg-white py-6 m-auto w-full mt-6 rounded-md">
 			<div class="text-2xl mb-6 ml-12">Edit</div>
 			
-			<div class="grid grid-cols-1 gap-0 max-w-xl m-auto mb-4">
-				<input type="text" placeholder="Name" value="{{ $track->name }}" class="rounded-md" name="name"/>
+			<div class="grid grid-cols-2 gap-4 max-w-xl m-auto mb-4">
+				<input type="text" placeholder="Name" value="{{ $track->name }}" class="rounded" name="name"/>
+				<select type="text" placeholder="Name" value="" class="rounded-md " name="channels_id" required>
+					@foreach($channels as $channel)
+						<option value="{{ $channel->id }}" @if($channel->id==$track->channels_id) selected="selected" @endif>{{ $channel->name }}</option>
+					@endforeach
+				</select>
 			</div>
 			<div class="grid grid-cols-2 gap-0 max-w-xl m-auto mb-4 border-t-2 pt-4">
 				<div>

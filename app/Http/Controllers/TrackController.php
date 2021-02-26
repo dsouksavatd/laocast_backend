@@ -65,14 +65,18 @@ class TrackController extends Controller
     public function edit($id, Request $request) {
 
         $track = Tracks::find($id);
+        $channels = Channels::where('users_id', Auth::id())->get();
 
         if($request->isMethod('POST')) {
             $track->name = $request->name;
+            $track->channels_id = $request->channels_id;
             $track->save();
             return Redirect::to('tracks');
         }
 
-        return view('track.frmEdit')->with('track', $track);
+        return view('track.frmEdit')
+                ->with('channels', $channels)
+                ->with('track', $track);
     }
 
     /**
