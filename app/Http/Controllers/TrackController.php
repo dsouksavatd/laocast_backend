@@ -7,6 +7,7 @@ use App\Models\Tracks;
 use App\Models\Channels;
 use Auth;
 use Redirect;
+use Laratrust;
 
 class TrackController extends Controller
 {
@@ -15,7 +16,7 @@ class TrackController extends Controller
      */
     public function index() {
                 
-        if(Auth::user()->hasRole('root')) {
+        if(Auth::user()->hasRole(['root','admin'])) {
             echo 'root';
         }
 
