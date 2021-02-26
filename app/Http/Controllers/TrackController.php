@@ -15,6 +15,10 @@ class TrackController extends Controller
      */
     public function index() {
                 
+        if(Auth::user()->hasRole('root')) {
+            echo 'root';
+        }
+
         if(Auth::user()->hasRole(['root', 'admin'])) {
 
             $tracks = Tracks::orderBy('id', 'DESC')
