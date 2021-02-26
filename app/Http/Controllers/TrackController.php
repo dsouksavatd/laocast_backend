@@ -10,11 +10,29 @@ use Redirect;
 
 class TrackController extends Controller
 {
+
+    public static $CODE = 200;
+    public static $MESSAGE = "success";
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(Request $request) {
+
+        app('translator')->setLocale($request->header('Content-Language'));
+        $this->middleware('auth', [
+            'except' => [
+            ]
+        ]);
+    }
+
     /**
      * 
      */
     public function index() {
-        
+
         if(Auth::user()->hasRole(['root', 'admin'])) {
 
             $tracks = Tracks::orderBy('id', 'DESC')
