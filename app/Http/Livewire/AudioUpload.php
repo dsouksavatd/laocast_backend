@@ -27,7 +27,7 @@ class AudioUpload extends Component
     public function save(Request $request)
     {   
         $this->validate([
-            'audio' => 'required|mimes:mp3,mp4|max:20240', // 1MB Max
+            'audio' => 'required|mimes:mp3,mp4|max:50240', // 1MB Max
             'name' => 'required',
             'channels_id' => 'required'
         ]);
